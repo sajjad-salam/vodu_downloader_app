@@ -19,35 +19,9 @@ void main() {
   runApp(const MyApp());
 }
 
-class UrlDownloader {
-  static Future<List<String>> findMp4Links(String url) async {
-    final response = await http.get(Uri.parse(url));
 
-    if (response.statusCode == 200) {
-      final htmlContent = response.body;
-      final mp4LinkPattern = RegExp(r'href="(.*?\.mp4)"');
-      final matches = mp4LinkPattern.allMatches(htmlContent);
 
-      final mp4Links = matches.map((match) => match.group(1)!).toList();
-      return mp4Links;
-    }
 
-    return [];
-  }
-
-  static Future<String> downloadFile(String url, String savePath) async {
-    final response = await http.get(Uri.parse(url));
-    final file = await getFileFromPath(savePath);
-    await file.writeAsBytes(response.bodyBytes);
-    return file.path;
-  }
-
-  static Future<File> getFileFromPath(String savePath) async {
-    final appDir = await getApplicationDocumentsDirectory();
-    final file = File('${appDir.path}/$savePath');
-    return file;
-  }
-}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
