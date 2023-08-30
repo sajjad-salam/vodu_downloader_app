@@ -1,0 +1,110 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.vodu_downloader"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="16"
+9        android:targetSdkVersion="33" />
+10    <!--
+11         The INTERNET permission is required for development. Specifically,
+12         the Flutter tool needs it to communicate with the running application
+13         to allow setting breakpoints, to provide hot reload, etc.
+14    -->
+15    <uses-permission android:name="android.permission.INTERNET" />
+15-->C:\Users\wtgd5\Downloads\vodu_downloader_app\android\app\src\main\AndroidManifest.xml:2:5-67
+15-->C:\Users\wtgd5\Downloads\vodu_downloader_app\android\app\src\main\AndroidManifest.xml:2:22-64
+16    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+16-->[:file_picker] C:\Users\wtgd5\Downloads\vodu_downloader_app\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-80
+16-->[:file_picker] C:\Users\wtgd5\Downloads\vodu_downloader_app\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-77
+17
+18    <queries>
+18-->[:file_picker] C:\Users\wtgd5\Downloads\vodu_downloader_app\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:11:5-17:15
+19        <intent>
+19-->[:file_picker] C:\Users\wtgd5\Downloads\vodu_downloader_app\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:12:9-16:18
+20            <action android:name="android.intent.action.GET_CONTENT" />
+20-->[:file_picker] C:\Users\wtgd5\Downloads\vodu_downloader_app\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-72
+20-->[:file_picker] C:\Users\wtgd5\Downloads\vodu_downloader_app\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:13:21-69
+21
+22            <data android:mimeType="*/*" />
+22-->[:file_picker] C:\Users\wtgd5\Downloads\vodu_downloader_app\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:15:13-44
+22-->[:file_picker] C:\Users\wtgd5\Downloads\vodu_downloader_app\build\file_picker\intermediates\merged_manifest\debug\AndroidManifest.xml:15:19-41
+23        </intent>
+24    </queries>
+25
+26    <permission
+26-->[androidx.core:core:1.10.1] C:\Users\wtgd5\.gradle\caches\transforms-3\c4988ff80110f75080a936fc6f044848\transformed\core-1.10.1\AndroidManifest.xml:22:5-24:47
+27        android:name="com.example.vodu_downloader.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+27-->[androidx.core:core:1.10.1] C:\Users\wtgd5\.gradle\caches\transforms-3\c4988ff80110f75080a936fc6f044848\transformed\core-1.10.1\AndroidManifest.xml:23:9-81
+28        android:protectionLevel="signature" />
+28-->[androidx.core:core:1.10.1] C:\Users\wtgd5\.gradle\caches\transforms-3\c4988ff80110f75080a936fc6f044848\transformed\core-1.10.1\AndroidManifest.xml:24:9-44
+29
+30    <uses-permission android:name="com.example.vodu_downloader.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+30-->[androidx.core:core:1.10.1] C:\Users\wtgd5\.gradle\caches\transforms-3\c4988ff80110f75080a936fc6f044848\transformed\core-1.10.1\AndroidManifest.xml:26:5-97
+30-->[androidx.core:core:1.10.1] C:\Users\wtgd5\.gradle\caches\transforms-3\c4988ff80110f75080a936fc6f044848\transformed\core-1.10.1\AndroidManifest.xml:26:22-94
+31
+32    <application
+33        android:name="android.app.Application"
+34        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+34-->[androidx.core:core:1.10.1] C:\Users\wtgd5\.gradle\caches\transforms-3\c4988ff80110f75080a936fc6f044848\transformed\core-1.10.1\AndroidManifest.xml:28:18-86
+35        android:debuggable="true"
+36        android:icon="@mipmap/ic_launcher"
+37        android:label="vodu_downloader" >
+38        <activity
+39            android:name="com.example.vodu_downloader.MainActivity"
+40            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+41            android:exported="true"
+42            android:hardwareAccelerated="true"
+43            android:launchMode="singleTop"
+44            android:theme="@style/LaunchTheme"
+45            android:windowSoftInputMode="adjustResize" >
+46
+47            <!--
+48                 Specifies an Android theme to apply to this Activity as soon as
+49                 the Android process has started. This theme is visible to the user
+50                 while the Flutter UI initializes. After that, this theme continues
+51                 to determine the Window background behind the Flutter UI.
+52            -->
+53            <meta-data
+54                android:name="io.flutter.embedding.android.NormalTheme"
+55                android:resource="@style/NormalTheme" />
+56
+57            <intent-filter>
+58                <action android:name="android.intent.action.MAIN" />
+59
+60                <category android:name="android.intent.category.LAUNCHER" />
+61            </intent-filter>
+62        </activity>
+63        <!--
+64             Don't delete the meta-data below.
+65             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+66        -->
+67        <meta-data
+68            android:name="flutterEmbedding"
+69            android:value="2" />
+70
+71        <activity
+71-->[:url_launcher_android] C:\Users\wtgd5\Downloads\vodu_downloader_app\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-13:74
+72            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+72-->[:url_launcher_android] C:\Users\wtgd5\Downloads\vodu_downloader_app\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-74
+73            android:exported="false"
+73-->[:url_launcher_android] C:\Users\wtgd5\Downloads\vodu_downloader_app\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-37
+74            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+74-->[:url_launcher_android] C:\Users\wtgd5\Downloads\vodu_downloader_app\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-71
+75
+76        <uses-library
+76-->[androidx.window:window:1.0.0-beta04] C:\Users\wtgd5\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
+77            android:name="androidx.window.extensions"
+77-->[androidx.window:window:1.0.0-beta04] C:\Users\wtgd5\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
+78            android:required="false" />
+78-->[androidx.window:window:1.0.0-beta04] C:\Users\wtgd5\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
+79        <uses-library
+79-->[androidx.window:window:1.0.0-beta04] C:\Users\wtgd5\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
+80            android:name="androidx.window.sidecar"
+80-->[androidx.window:window:1.0.0-beta04] C:\Users\wtgd5\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+81            android:required="false" />
+81-->[androidx.window:window:1.0.0-beta04] C:\Users\wtgd5\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
+82    </application>
+83
+84</manifest>

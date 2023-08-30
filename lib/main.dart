@@ -1,9 +1,52 @@
+import 'dart:io';
+import 'package:dio/dio.dart';
+import 'dart:convert';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:html/parser.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:http/http.dart' as http;
+import 'package:path_provider/path_provider.dart';
+import 'package:file_picker/file_picker.dart';
+import 'package:path/path.dart' as path;
+import 'package:progress_indicators/progress_indicators.dart';
+import 'package:html/parser.dart' as parser;
+import 'package:html/dom.dart' as dom;
 
 void main() {
   runApp(const MyApp());
+}
+
+class UrlDownloader {
+  static Future<List<String>> findMp4Links(String url) async {
+    final response = await http.get(Uri.parse(url));
+
+    if (response.statusCode == 200) {
+      final htmlContent = response.body;
+      final mp4LinkPattern = RegExp(r'href="(.*?\.mp4)"');
+      final matches = mp4LinkPattern.allMatches(htmlContent);
+
+      final mp4Links = matches.map((match) => match.group(1)!).toList();
+      return mp4Links;
+    }
+
+    return [];
+  }
+
+  static Future<String> downloadFile(String url, String savePath) async {
+    final response = await http.get(Uri.parse(url));
+    final file = await getFileFromPath(savePath);
+    await file.writeAsBytes(response.bodyBytes);
+    return file.path;
+  }
+
+  static Future<File> getFileFromPath(String savePath) async {
+    final appDir = await getApplicationDocumentsDirectory();
+    final file = File('${appDir.path}/$savePath');
+    return file;
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -16,75 +59,149 @@ class MyApp extends StatelessWidget {
       title: ' ',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme:
-            ColorScheme.fromSeed(seedColor: Color.fromRGBO(40, 40, 40, 1)),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromRGBO(40, 40, 40, 1)),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'vodu downloader'),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
+  const MyHomePage({
+    super.key,
+  });
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  List<String> extractUrlsFromText(String text) {
+    final regex = RegExp(
+      r'(https?://(?:www\.|(?!www))[^\s.]+\.[^\s]{2,}-360\.mp4)',
+      caseSensitive: false,
+      multiLine: true,
+    );
 
-  void _incrementCounter() {
-    setState(() {
-      _counter = _counter + 1000;
-    });
+    final matches = regex.allMatches(text);
+
+    final urls = matches.map((match) => match.group(0)!).toList();
+
+    return urls;
   }
+
+  void _extractUrls() {
+    final text = urlController.text;
+    final urls = extractUrlsFromText(text);
+    setState(() {
+      _urls = urls;
+    });
+    for (final url in urls) {
+      print(url);
+    }
+  }
+
+  List<String> _urls = [];
 
   void showNotice() {
     Get.snackbar(
       colorText: Colors.white,
-      'developer',
-      'Eng. sajjad salam',
+      'المطور',
+      'المهندس سجاد سلام ',
       snackPosition: SnackPosition.BOTTOM,
-      duration: Duration(seconds: 3),
+      duration: const Duration(seconds: 3),
     );
   }
 
-  void _openvideo() async {
-    const url =
-        'https://youtu.be/YxNpMl5_OsA?list=PLDVWo4Hzejmp5wVVlOMqt6fkHoomPKFegA';
-    try {
-      // ignore: deprecated_member_use
-      await launch(url);
-    } catch (e) {
-      // ignore: avoid_print
-      print(e);
+  final urlController = TextEditingController();
+  final savePathController = TextEditingController();
+  final List<String> mp4Links = [];
+
+  String savePath = '';
+
+  Future<void> _openFilePicker() async {
+    final result = await FilePicker.platform.getDirectoryPath();
+
+    if (result != null) {
+      setState(() {
+        savePath = result;
+        savePathController.text = result;
+      });
     }
+  }
+
+  void downloadVideosFromUrls(List<String> urls, String savePath) async {
+    for (final url in urls) {
+      if (url.endsWith('.mp4')) {
+        try {
+          final response = await http.get(Uri.parse(url));
+          final bytes = response.bodyBytes;
+          final file = File('$savePath/${Uri.parse(url).pathSegments.last}');
+          await file.writeAsBytes(bytes);
+          print("download starting");
+        } catch (e) {
+          print('Error downloading video from URL: $url');
+          print(e);
+        }
+      }
+    }
+  }
+
+  Future<List<String?>> extractMp4Urls() async {
+    const url = 'https://movie.vodu.me/index.php?do=view&type=post&id=73529.mp4';
+    final response = await http.get(Uri.parse(url));
+    if (response.statusCode == 200) {
+      try {} catch (e) {}
+      final document = parser.parse(response.body);
+      final videoElements =
+          document.querySelectorAll('video > source[src\$=".mp4"]');
+      final mp4Urls =
+          videoElements.map((element) => element.attributes['src']).toList();
+      return mp4Urls;
+    } else {
+      throw Exception('Failed to fetch the web page');
+    }
+  }
+
+  void printMp4Urls() async {
+    try {
+      final mp4Urls = await extractMp4Urls();
+      mp4Urls.forEach(print);
+      print(mp4Urls);
+    } catch (e) {
+      print('Error: $e');
+    }
+  }
+
+  @override
+  void dispose() {
+    urlController.dispose();
+    savePathController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(40, 40, 40, 1),
-      appBar: AppBar(
-        backgroundColor: Color.fromRGBO(255, 128, 128, 10),
-        // backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(
-          widget.title,
-          style: TextStyle(fontFamily: "myfont", color: Colors.white),
+      backgroundColor: const Color.fromRGBO(40, 40, 40, 1),
+      appBar: const CupertinoNavigationBar(
+        middle: Text(
+          'vodu downloader',
+          style: TextStyle(
+              fontFamily: "myfont", color: Colors.white, fontSize: 20),
         ),
+        backgroundColor: Color.fromRGBO(255, 128, 128, 10),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             TextFormField(
-              style: TextStyle(
+              controller: urlController,
+              style: const TextStyle(
                   color: Colors.white, fontFamily: "myfont", fontSize: 14),
-              onChanged: (value) {},
               decoration: const InputDecoration(
                 icon: Icon(Icons.favorite),
                 labelText: 'رابط المسلسل او الفلم',
@@ -102,33 +219,56 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            Padding(padding: EdgeInsets.only(top: 120)),
+            const SizedBox(height: 16.0),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: _openFilePicker,
+              child: const Text(
+                'اختار مسار حفض البيانات',
+                style: TextStyle(fontFamily: "myfont"),
+              ),
+            ),
+            const SizedBox(height: 8.0),
+            Text(
+              'سيتم حفض الملفات في : $savePath',
+              style: const TextStyle(
+                  fontSize: 12.0, fontFamily: "myfont", color: Colors.white),
+            ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: _urls.length,
+                itemBuilder: (context, index) => ListTile(
+                  title: Text(_urls[index]),
+                ),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: _extractUrls,
+              style: ButtonStyle(
+                backgroundColor: const MaterialStatePropertyAll(Colors.amber),
+                overlayColor: MaterialStateProperty.all(Colors.red),
+              ),
               child: const Text(
                 'تحميل الفيديوهات',
                 style: TextStyle(fontFamily: "myfont", color: Colors.white),
               ),
+            ),
+            const Padding(padding: EdgeInsets.only(top: 30)),
+            ElevatedButton(
+              onPressed: () {
+                downloadVideosFromUrls(_urls, savePath);
+              },
               style: ButtonStyle(
-                backgroundColor: MaterialStatePropertyAll(Colors.amber),
+                backgroundColor: const MaterialStatePropertyAll(Colors.blue),
                 overlayColor: MaterialStateProperty.all(Colors.red),
               ),
-            ),
-            Padding(padding: EdgeInsets.only(top: 30)),
-            ElevatedButton(
-              onPressed: _openvideo,
               child: const Text(
                 'تحميل الترجمات',
                 style: TextStyle(fontFamily: "myfont", color: Colors.white),
               ),
-              style: ButtonStyle(
-                backgroundColor: MaterialStatePropertyAll(Colors.blue),
-                overlayColor: MaterialStateProperty.all(Colors.red),
-              ),
             ),
-            Padding(padding: EdgeInsets.only(top: 50)),
+            const Padding(padding: EdgeInsets.only(top: 50)),
             TextButton(
-              onPressed: () => _openvideo(),
+              onPressed: () {},
               child: const Text(
                 "مشاهده الشرح عن البرنامج",
                 style: TextStyle(
