@@ -1,7 +1,8 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'dart:convert';
-
+import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,10 +19,6 @@ import 'package:html/dom.dart' as dom;
 void main() {
   runApp(const MyApp());
 }
-
-
-
-
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -106,25 +103,73 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
-  void downloadVideosFromUrls(List<String> urls, String savePath) async {
-    for (final url in urls) {
-      if (url.endsWith('.mp4')) {
-        try {
-          final response = await http.get(Uri.parse(url));
-          final bytes = response.bodyBytes;
-          final file = File('$savePath/${Uri.parse(url).pathSegments.last}');
-          await file.writeAsBytes(bytes);
-          print("download starting");
-        } catch (e) {
-          print('Error downloading video from URL: $url');
-          print(e);
-        }
+  void extractAndDownloadMp4Urls(String text, String savePath) async {
+    final regex = RegExp(
+      r'(https?://(?:www\.|(?!www))[^\s.]+\.[^\s]{2,}\.mp4)',
+      caseSensitive: false,
+      multiLine: true,
+    );
+
+    final matches = regex.allMatches(text);
+    try {
+      for (final match in matches) {
+        final url = match.group(0)!;
+        final response = await http.get(Uri.parse(url));
+
+        final file = File('$savePath/${Uri.parse(url).pathSegments.last}');
+        final bytesReceived = response.bodyBytes.length;
+        final totalBytes = response.contentLength ?? bytesReceived;
+
+        stdout.write('Downloading: ${Uri.parse(url).pathSegments.last} ');
+        stdout.write(progressBar(bytesReceived, totalBytes, length: 20));
+        stdout.write('\r');
+
+        await file.writeAsBytes(response.bodyBytes);
+        stdout.write('\n');
       }
+    } catch (e) {
+      Get.snackbar("error", e.toString());
     }
   }
 
+  String progressBar(int progress, int total, {int length = 10}) {
+    final filledLength = (length * progress / total).round();
+    final emptyLength = length - filledLength;
+
+    return '[' +
+        '=' * filledLength +
+        '>' +
+        ' ' * emptyLength +
+        '] ${((progress / total) * 100).toStringAsFixed(1)}%';
+  }
+
+  Future<String> downloadFile(String url, String fileName, String dir) async {
+    HttpClient httpClient = new HttpClient();
+    File file;
+    String filePath = '';
+    String myUrl = '';
+
+    try {
+      myUrl = url + '/' + fileName;
+      var request = await httpClient.getUrl(Uri.parse(myUrl));
+      var response = await request.close();
+      if (response.statusCode == 200) {
+        var bytes = await consolidateHttpClientResponseBytes(response);
+        filePath = '$dir/$fileName';
+        file = File(filePath);
+        await file.writeAsBytes(bytes);
+      } else
+        filePath = 'Error code: ' + response.statusCode.toString();
+    } catch (ex) {
+      filePath = 'Can not fetch url';
+    }
+
+    return filePath;
+  }
+
   Future<List<String?>> extractMp4Urls() async {
-    const url = 'https://movie.vodu.me/index.php?do=view&type=post&id=73529.mp4';
+    const url =
+        'https://movie.vodu.me/index.php?do=view&type=post&id=73529.mp4';
     final response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
       try {} catch (e) {}
@@ -229,7 +274,7 @@ class _MyHomePageState extends State<MyHomePage> {
             const Padding(padding: EdgeInsets.only(top: 30)),
             ElevatedButton(
               onPressed: () {
-                downloadVideosFromUrls(_urls, savePath);
+                downloadFile(urlController.text, "file", savePath);
               },
               style: ButtonStyle(
                 backgroundColor: const MaterialStatePropertyAll(Colors.blue),

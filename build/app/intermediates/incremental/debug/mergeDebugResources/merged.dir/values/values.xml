@@ -9,6 +9,10 @@
     <attr format="dimension" name="splitMinSmallestWidth"/>
     <attr format="dimension" name="splitMinWidth"/>
     <attr format="float" name="splitRatio"/>
+    <bool name="enable_system_alarm_service_default">true</bool>
+    <bool name="enable_system_foreground_service_default">true</bool>
+    <bool name="enable_system_job_service_default">false</bool>
+    <bool name="workmanager_test_configuration">false</bool>
     <color name="androidx_core_ripple_material_light">#1f000000</color>
     <color name="androidx_core_secondary_text_default_material_light">#8a000000</color>
     <color name="call_notification_answer_color">#1d873b</color>
@@ -93,6 +97,7 @@
     <item name="title" type="id"/>
     <id name="view_tree_lifecycle_owner"/>
     <integer name="status_bar_notification_info_maxnum">999</integer>
+    <string name="androidx_startup" translatable="false">androidx.startup</string>
     <string name="call_notification_answer_action">Answer</string>
     <string name="call_notification_answer_video_action">Video</string>
     <string name="call_notification_decline_action">Decline</string>
@@ -100,6 +105,14 @@
     <string name="call_notification_incoming_text">Incoming call</string>
     <string name="call_notification_ongoing_text">Ongoing call</string>
     <string name="call_notification_screening_text">Screening an incoming call</string>
+    <string name="flutter_downloader_notification_canceled">canceled</string>
+    <string name="flutter_downloader_notification_channel_description">Display download progress</string>
+    <string name="flutter_downloader_notification_channel_name">Downloader</string>
+    <string name="flutter_downloader_notification_complete">complete</string>
+    <string name="flutter_downloader_notification_failed">failed</string>
+    <string name="flutter_downloader_notification_in_progress">in progress</string>
+    <string name="flutter_downloader_notification_paused">paused</string>
+    <string name="flutter_downloader_notification_started">started</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
         

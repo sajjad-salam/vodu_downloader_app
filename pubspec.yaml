@@ -43,6 +43,7 @@ dependencies:
   progress_indicators: ^1.0.0
   html: ^0.15.4
   dio: ^5.3.2
+  flutter_downloader: ^1.11.1
 
 dev_dependencies:
   flutter_test:

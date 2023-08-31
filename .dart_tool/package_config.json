@@ -74,6 +74,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "flutter_downloader",
+      "rootUri": "file:///C:/Users/wtgd5/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_downloader-1.11.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "flutter_lints",
       "rootUri": "file:///C:/Users/wtgd5/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_lints-2.0.2",
       "packageUri": "lib/",
@@ -332,7 +338,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-08-30T10:09:43.083816Z",
+  "generated": "2023-08-31T09:12:57.747729Z",
   "generator": "pub",
   "generatorVersion": "3.0.5"
 }
