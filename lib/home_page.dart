@@ -170,6 +170,13 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Image.asset(
+              "assets/images/logo.png",
+              cacheHeight: 150,
+              width: 200,
+              // height: 150,
+            ),
+            Padding(padding: EdgeInsets.only(bottom: 30)),
             TextFormField(
               controller: urlController,
               onFieldSubmitted: (value) {
