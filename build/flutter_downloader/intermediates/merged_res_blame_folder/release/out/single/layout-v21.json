@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "vn.hunghd.flutterdownloader.flutter_downloader-merged_res-14:/layout-v21/notification_template_custom_big.xml",
+        "source": "vn.hunghd.flutterdownloader.flutter_downloader-core-1.9.0-6:/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "vn.hunghd.flutterdownloader.flutter_downloader-merged_res-14:/layout-v21/notification_action.xml",
+        "source": "vn.hunghd.flutterdownloader.flutter_downloader-core-1.9.0-6:/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "vn.hunghd.flutterdownloader.flutter_downloader-merged_res-14:/layout-v21/notification_template_icon_group.xml",
+        "source": "vn.hunghd.flutterdownloader.flutter_downloader-core-1.9.0-6:/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "vn.hunghd.flutterdownloader.flutter_downloader-merged_res-14:/layout-v21/notification_action_tombstone.xml",
+        "source": "vn.hunghd.flutterdownloader.flutter_downloader-core-1.9.0-6:/layout-v21/notification_action_tombstone.xml"
+    }
+]

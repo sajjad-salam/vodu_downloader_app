@@ -1,0 +1,13 @@
+com.mr.flutter.plugin.filepicker.file_picker-jetified-window-1.0.0-beta04-0 C:\Users\wtgd5\.gradle\caches\transforms-3\25cee5f028ac2a6b79fd6278ff5b59e2\transformed\jetified-window-1.0.0-beta04\res
+com.mr.flutter.plugin.filepicker.file_picker-jetified-annotation-experimental-1.1.0-1 C:\Users\wtgd5\.gradle\caches\transforms-3\6c0c163cc77ae6c91f9f7dfcd179c29c\transformed\jetified-annotation-experimental-1.1.0\res
+com.mr.flutter.plugin.filepicker.file_picker-core-1.6.0-2 C:\Users\wtgd5\.gradle\caches\transforms-3\7e9df2ac2213a6bd3cef0f2f27870d79\transformed\core-1.6.0\res
+com.mr.flutter.plugin.filepicker.file_picker-jetified-window-java-1.0.0-beta04-3 C:\Users\wtgd5\.gradle\caches\transforms-3\ae81e06d24c799147c26814497a2a305\transformed\jetified-window-java-1.0.0-beta04\res
+com.mr.flutter.plugin.filepicker.file_picker-main-4 C:\Users\wtgd5\AppData\Local\Pub\Cache\hosted\pub.dev\file_picker-5.3.4\android\src\main\res
+com.mr.flutter.plugin.filepicker.file_picker-release-5 C:\Users\wtgd5\AppData\Local\Pub\Cache\hosted\pub.dev\file_picker-5.3.4\android\src\release\res
+com.mr.flutter.plugin.filepicker.file_picker-pngs-6 C:\Users\wtgd5\Downloads\vodu_downloader_app\build\file_picker\generated\res\pngs\release
+com.mr.flutter.plugin.filepicker.file_picker-resValues-7 C:\Users\wtgd5\Downloads\vodu_downloader_app\build\file_picker\generated\res\resValues\release
+com.mr.flutter.plugin.filepicker.file_picker-rs-8 C:\Users\wtgd5\Downloads\vodu_downloader_app\build\file_picker\generated\res\rs\release
+com.mr.flutter.plugin.filepicker.file_picker-mergeReleaseResources-9 C:\Users\wtgd5\Downloads\vodu_downloader_app\build\file_picker\intermediates\incremental\release\mergeReleaseResources\merged.dir
+com.mr.flutter.plugin.filepicker.file_picker-mergeReleaseResources-10 C:\Users\wtgd5\Downloads\vodu_downloader_app\build\file_picker\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+com.mr.flutter.plugin.filepicker.file_picker-merged_res-11 C:\Users\wtgd5\Downloads\vodu_downloader_app\build\file_picker\intermediates\merged_res\release
+com.mr.flutter.plugin.filepicker.file_picker-packaged_res-12 C:\Users\wtgd5\Downloads\vodu_downloader_app\build\flutter_plugin_android_lifecycle\intermediates\packaged_res\release

@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "vn.hunghd.flutterdownloader.flutter_downloader-merged_res-14:/drawable/notification_bg_low.xml",
+        "source": "vn.hunghd.flutterdownloader.flutter_downloader-core-1.9.0-6:/drawable/notification_bg_low.xml"
+    },
+    {
+        "merged": "vn.hunghd.flutterdownloader.flutter_downloader-merged_res-14:/drawable/notification_tile_bg.xml",
+        "source": "vn.hunghd.flutterdownloader.flutter_downloader-core-1.9.0-6:/drawable/notification_tile_bg.xml"
+    },
+    {
+        "merged": "vn.hunghd.flutterdownloader.flutter_downloader-merged_res-14:/drawable/notification_bg.xml",
+        "source": "vn.hunghd.flutterdownloader.flutter_downloader-core-1.9.0-6:/drawable/notification_bg.xml"
+    },
+    {
+        "merged": "vn.hunghd.flutterdownloader.flutter_downloader-merged_res-14:/drawable/notification_icon_background.xml",
+        "source": "vn.hunghd.flutterdownloader.flutter_downloader-core-1.9.0-6:/drawable/notification_icon_background.xml"
+    }
+]

@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "vn.hunghd.flutterdownloader.flutter_downloader-merged_res-14:/layout/notification_template_part_chronometer.xml",
+        "source": "vn.hunghd.flutterdownloader.flutter_downloader-core-1.9.0-6:/layout/notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "vn.hunghd.flutterdownloader.flutter_downloader-merged_res-14:/layout/notification_action.xml",
+        "source": "vn.hunghd.flutterdownloader.flutter_downloader-core-1.9.0-6:/layout/notification_action.xml"
+    },
+    {
+        "merged": "vn.hunghd.flutterdownloader.flutter_downloader-merged_res-14:/layout/notification_template_part_time.xml",
+        "source": "vn.hunghd.flutterdownloader.flutter_downloader-core-1.9.0-6:/layout/notification_template_part_time.xml"
+    },
+    {
+        "merged": "vn.hunghd.flutterdownloader.flutter_downloader-merged_res-14:/layout/notification_action_tombstone.xml",
+        "source": "vn.hunghd.flutterdownloader.flutter_downloader-core-1.9.0-6:/layout/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "vn.hunghd.flutterdownloader.flutter_downloader-merged_res-14:/layout/notification_template_icon_group.xml",
+        "source": "vn.hunghd.flutterdownloader.flutter_downloader-core-1.9.0-6:/layout/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "vn.hunghd.flutterdownloader.flutter_downloader-merged_res-14:/layout/custom_dialog.xml",
+        "source": "vn.hunghd.flutterdownloader.flutter_downloader-core-1.9.0-6:/layout/custom_dialog.xml"
+    }
+]

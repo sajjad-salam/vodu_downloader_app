@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "com.odehbros.flutter_file_downloader-merged_res-10:/layout/notification_template_part_chronometer.xml",
+        "source": "com.odehbros.flutter_file_downloader-core-1.6.0-2:/layout/notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "com.odehbros.flutter_file_downloader-merged_res-10:/layout/notification_action.xml",
+        "source": "com.odehbros.flutter_file_downloader-core-1.6.0-2:/layout/notification_action.xml"
+    },
+    {
+        "merged": "com.odehbros.flutter_file_downloader-merged_res-10:/layout/notification_template_icon_group.xml",
+        "source": "com.odehbros.flutter_file_downloader-core-1.6.0-2:/layout/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "com.odehbros.flutter_file_downloader-merged_res-10:/layout/notification_action_tombstone.xml",
+        "source": "com.odehbros.flutter_file_downloader-core-1.6.0-2:/layout/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "com.odehbros.flutter_file_downloader-merged_res-10:/layout/notification_template_part_time.xml",
+        "source": "com.odehbros.flutter_file_downloader-core-1.6.0-2:/layout/notification_template_part_time.xml"
+    },
+    {
+        "merged": "com.odehbros.flutter_file_downloader-merged_res-10:/layout/custom_dialog.xml",
+        "source": "com.odehbros.flutter_file_downloader-core-1.6.0-2:/layout/custom_dialog.xml"
+    }
+]

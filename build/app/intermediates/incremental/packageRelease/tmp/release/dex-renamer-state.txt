@@ -1,0 +1,4 @@
+#Fri Sep 01 16:50:14 AST 2023
+base.0=C\:\\Users\\wtgd5\\Downloads\\vodu_downloader_app\\build\\app\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

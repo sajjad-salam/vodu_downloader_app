@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "com.odehbros.flutter_file_downloader-merged_res-10:/layout-v21/notification_template_icon_group.xml",
+        "source": "com.odehbros.flutter_file_downloader-core-1.6.0-2:/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "com.odehbros.flutter_file_downloader-merged_res-10:/layout-v21/notification_template_custom_big.xml",
+        "source": "com.odehbros.flutter_file_downloader-core-1.6.0-2:/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "com.odehbros.flutter_file_downloader-merged_res-10:/layout-v21/notification_action.xml",
+        "source": "com.odehbros.flutter_file_downloader-core-1.6.0-2:/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "com.odehbros.flutter_file_downloader-merged_res-10:/layout-v21/notification_action_tombstone.xml",
+        "source": "com.odehbros.flutter_file_downloader-core-1.6.0-2:/layout-v21/notification_action_tombstone.xml"
+    }
+]
