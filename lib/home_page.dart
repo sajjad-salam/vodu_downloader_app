@@ -239,7 +239,14 @@ class _MyHomePageState extends State<MyHomePage> {
   // ignore: non_constant_identifier_names
   TextButton youtube_button() {
     return TextButton(
-      onPressed: () {
+      onPressed: () async {
+        final String url = "https://www.youtube.com/watch?v=8l5ig2wf3Ow";
+        try {
+          // ignore: deprecated_member_use
+          await launch(url);
+        } catch (e) {
+          Get.snackbar("خطأ", "لايمكن فتح الرابط بسبب $e");
+        }
         // تشغيل فيديو يوتيوب
       },
       child: const Text(
